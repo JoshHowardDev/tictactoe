@@ -4,8 +4,8 @@ const playersController = (() => {
     const players = [];
 
     const createPlayer = (name, icon) => {
+        if (players.length > 1) players.length = 0;
         players.push({name, icon})
-
     }
 
     return {createPlayer, players};
@@ -34,14 +34,24 @@ const gamePlay = (() => {
     ]
 
     const initializeNewGame = () => {
+        
+        //Empty gameboard
         gameBoardArray.fill('', 0, 9);
+
+        //Create players
         name0 = document.querySelector('#player0Name').value || 'Player 1';
         name1 = document.querySelector('#player1Name').value || 'Player 2';
-        iconSelection = iconSets[document.querySelector('.iconSelection').dataset.iconset || 0];
+        if (document.querySelector('.iconSelection')) {
+            iconDetailsArray = iconSets[Number(document.querySelector('.iconSelection').dataset.iconset)];
+        } else {
+            iconDetailsArray = iconSets[0];
+        }
+        
+        playersController.createPlayer(name0, iconDetailsArray[0]);
+        playersController.createPlayer(name1, iconDetailsArray[1]);
 
-        playersController.createPlayer(name0, iconSelection[0]);
-        playersController.createPlayer(name1, iconSelection[1]);
-        displayController.makeTilesClickable();
+        //Display gameboard and pass in theme
+        displayController.newGameDisplay(iconDetailsArray[2]);
     };
 
     const establishWinner = () => {
@@ -64,37 +74,43 @@ const gamePlay = (() => {
             gameBoardTriplesArray.push(tripletTxt);
         });
 
-        if (gameBoardTriplesArray.includes('XXX')) {
-            displayController.updateBanner('player 1 wins')
+        if (gameBoardTriplesArray.includes('000')) {
+            displayController.updateBanner(`${playersController.players[0].name} is the winner!`)
             gameOver = true;
             return 0;
-        } else if (gameBoardTriplesArray.includes('OOO')) {
-            displayController.updateBanner('player 2 wins')
+        } else if (gameBoardTriplesArray.includes('111')) {
+            displayController.updateBanner(`${playersController.players[1].name} is the winner!`)
             gameOver = true;
             return 0;
         } else if (gameBoardArray.join('').length === 9) {
-            displayController.updateBanner('tie game!')
+            displayController.updateBanner(`It's a tie game!`)
             gameOver = true;
             return 0;
         }
     }
 
-    return {gameBoardArray, gameOver, iteratePlayerTurn, initializeNewGame, establishWinner};
+    return {gameBoardArray, gameOver, iconSets, iteratePlayerTurn, initializeNewGame, establishWinner};
 })();
 
 // Functionality related to the display of the game
 const displayController = (() => {
-    
-    gameTileDivs = document.querySelectorAll('.gameTile');
+
+    const bodyContainer = document.querySelector('.bodyContainer');
+    const playerDetailsDiv = document.querySelector('.playerDetails');
+    const gameBoard = document.querySelector('.gameBoard');
+    const gameTileDivs = document.querySelectorAll('.gameTile');
+    const gameBoardbanner = document.querySelector('.gameBoardBanner');
+    const icons = document.querySelectorAll('.iconOption');
+    const newGameButton = document.querySelector('.newGameButton');
 
     const populateGameBoard = () => {
         
         gameTileDivs.forEach((tile, index) => {
-            if (gamePlay.gameBoardArray[index]) {
-                if (!tile.classList.contains('marked')) {
-                    tile.classList.add('marked')
-                }
-                tile.innerHTML = `<img class="playerMark" src="images/${gamePlay.gameBoardArray[index]}.svg" alt="Player Mark">`;
+            if (gamePlay.gameBoardArray[index] === '') {
+                tile.innerHTML = '';
+                tile.classList.remove('marked')
+            } else {
+                tile.innerHTML = `<img class="playerMark" src="images/${playersController.players[gamePlay.gameBoardArray[index]].icon}" alt="Player Mark">`;
             }
         });
 
@@ -104,29 +120,64 @@ const displayController = (() => {
 
     const placeMark = (tile) => {
         if (!tile.classList.contains('marked') && !gamePlay.gameOver) {
+            tile.classList.add('marked');
             gamePlay.gameBoardArray[Number(tile.dataset.tilenum)] = gamePlay.iteratePlayerTurn();
             populateGameBoard()
         }
     }
 
     const updateBanner = (msg) => {
-        banner = document.querySelector('.gameBoardBanner');
-        banner.innerHTML = msg;
+        gameBoardbanner.classList.toggle('displayNone');
+        gameBoardbanner.innerHTML = msg;
+        newGameButton.classList.toggle('displayNone');
     }
 
     const makeTilesClickable = () => {
-        const gameTileDivs = document.querySelectorAll('.gameTile');
         gameTileDivs.forEach(tile => {
-            tile.addEventListener('click', displayController.placeMark.bind(this, tile))
+            tile.addEventListener('click', displayController.placeMark.bind(this, tile));
         });
     };
 
-    return {populateGameBoard, placeMark, updateBanner, makeTilesClickable};
+    const newGameDisplay = (theme) => {
+        playerDetailsDiv.classList.toggle('displayNone');
+
+        if (!(gameBoardbanner.classList.contains('displayNone'))) {
+            gameBoardbanner.classList.toggle('displayNone');
+            newGameButton.classList.toggle('displayNone')
+        }
+
+        gameBoard.classList.toggle("displayNone");
+        if (theme) {
+            bodyContainer.classList.add(theme);
+        }
+        populateGameBoard();
+        makeTilesClickable();
+    };
+
+    const clearIconSelection = () => {
+        icons.forEach(icon => {
+            icon.classList.remove('iconSelection');
+        });
+    }
+
+    const makeIconsClickable = () => {
+        icons.forEach(icon => {
+            icon.addEventListener('click', changeIconSelection.bind(this, icon)) 
+        });
+    }
+
+    const changeIconSelection = (icon) => {
+        clearIconSelection();
+        icon.classList.add('iconSelection');
+    }
+
+    return {populateGameBoard, placeMark, updateBanner, makeTilesClickable, newGameDisplay, makeIconsClickable};
 
 })();
 
 //Page Initialization
-
 (() => {
     document.querySelector('#playButton').addEventListener('click', gamePlay.initializeNewGame)
+    document.querySelector('.newGameButton').addEventListener('click', gamePlay.initializeNewGame)
+    displayController.makeIconsClickable();
 })();

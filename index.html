@@ -4,48 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cssreset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Silkscreen&family=Stick&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <title>Tic Tac Toe</title>
 </head>
 <body>
     <div class="bodyContainer">
         <div class="playerDetails">
-            <div class="playerDetailsForm player0Details">
-                <label for="player0Name">Player 1 Name</label>
-                <input type="text" id="player0Name">
-            </div>
-            <div class="playerDetailsForm iconSelection">
-                <span class="selectionTitle">Choose Your Battle!</span>
-                <div class="iconOptions">
-                    <div class="standardIcons" data-iconset="0"></div>
-                    <div class="batmanIcons" data-iconset="1"></div>
-                    <div class="genderIcons" data-iconset="2"></div>
+            <div class="playerNames playerDetailsForm">
+                <div class="player0Details playerNameBox">
+                    <label for="player0Name">Player 1 Name</label>
+                    <input type="text" id="player0Name">
+                </div>
+                <div class=" player1Details playerNameBox">
+                    <label for="player1Name">Player 2 Name</label>
+                    <input type="text" id="player1Name">
                 </div>
             </div>
-            <div class="playerDetailsForm player1Details">
-                <label for="player1Name">Player 2 Name</label>
-                <input type="text" id="player1Name">
+            <div class="playerDetailsForm">
+                <span class="selectionTitle">Choose Your Battle!</span>
+                <div class="iconOptionsDiv">
+                    <div class="iconOption standardIcons" data-iconset="0">Standard</div>
+                    <div class="iconOption batmanIcons" data-iconset="1">War in Gotham</div>
+                    <div class="iconOption genderIcons" data-iconset="2">Battle of the Sexes</div>
+                </div>
             </div>
-            <div class="playerDetailsForm playerDetailsButtonDiv">
+            <div class="playerDetailsButtonDiv">
                 <button type="button" id="playButton">Let's Play!</button>
             </div>
         </div>
-        <div class="gameBoardBanner">
+        <div class="gameBoardBanner displayNone">
 
         </div>
-        <div class="gameBoard">
+        <div class="gameBoard displayNone">
             <div class="gameTile" data-tilenum="0"></div>
             <div class="gameTile" data-tilenum="1"></div>
             <div class="gameTile" data-tilenum="2"></div>
             <div class="gameTile" data-tilenum="3"></div>
             <div class="gameTile" data-tilenum="4"></div>
-            <div class="gameTile" data-tilenum="5" id="hey"></div>
+            <div class="gameTile" data-tilenum="5"></div>
             <div class="gameTile" data-tilenum="6"></div>
             <div class="gameTile" data-tilenum="7"></div>
             <div class="gameTile" data-tilenum="8"></div>
         </div>
+        <div class="newGameButton displayNone">New Game</div>
     </div>
 </body>
 </html>

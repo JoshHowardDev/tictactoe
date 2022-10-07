@@ -1,19 +1,33 @@
 .bodyContainer {
     height: 100vh;
     width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/xo.png');
+    background-position: 70%;
+    background-repeat: no-repeat;
+}
+
+.gotham {
+    background-image: url('images/backgrounds/batman.png');
+    background-size: cover;
+}
+
+.gender {
+    background-image: url('images/backgrounds/gender.jpg');
+    background-size: cover;
 }
 
 .gameBoard {
     width: 40vw;
     height: 40vw;
     display: grid;
-/*     display: none; /*Change to grid when visible*/
-    grid: repeat(3, 1fr) / repeat(3, 1fr);
+    grid: repeat(3, 33%) / repeat(3, 33%);
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    background-color: white;
 }
 
 .gameTile {
@@ -21,20 +35,111 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
+}
+
+.gameTile>img {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .playerDetails {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 30vw);
+    justify-content: space-around;
+    gap: 30px;
 }
 
 .playerDetailsForm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Stick', sans-serif;
+    font-size: 3rem;
+    padding: 30px;
+    background-color: rgb(80, 208, 247);
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.playerNameBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.playerNameBox input {
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .playerDetailsButtonDiv {
+    display: flex;
+    justify-content: center;
     padding: 20px;
-    grid-column: 1 / 4;
+    grid-column: 1 / 3;
+}
+
+#playButton, .newGameButton {
+    background: linear-gradient(#8e8eff, rgb(127, 247, 127));
+    font-family: 'Silkscreen', cursive;
+    font-size: 4rem;
+    border: 5px solid black;
+    outline: 2px solid white;
+    border-radius: 10px;
+}
+
+#playButton:hover, .iconOption:hover, .newGameButton:hover {
+    transition: all 0.25s ease;
+    transform: scale(1.15, 1.15);
+    cursor: pointer;
+}
+
+#playButton:focus, .newGameButton:focus {
+    filter: invert(1);
+}
+
+.gameBoardBanner {
+    position: fixed;
+    top: 20vh;
+    width: 100vw;
+    padding: 30px;
+    font-size: 5rem;
+    border-radius: 10px;
+    background: linear-gradient(#8e8eff, rgb(127, 247, 127));
+    font-family: 'Cantora One', sans-serif;
+    text-align: center;
+}
+
+.iconOptionsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconOption {
+    border: 2px solid black;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    background-color: white;
+    text-align: center;
+    margin: 5px;
+    font-size: 3rem;
+}
+
+.iconSelection {
+    border: 3px solid gold;
+}
+
+.newGameButton {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+.displayNone {
+    display: none;
 }
