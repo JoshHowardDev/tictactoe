@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- ClipArt created by Arvin61r58 (http://openclipart.org/user-detail/Arvin61r58) -->
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns1="http://sozi.baierouge.fr" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg2985" viewBox="0 0 300 300" version="1.0" inkscape:version="0.91 r13725">
+  <title id="title4942">Big O</title>
+  <defs id="defs2987">
+    <radialGradient id="radialGradient4936" gradientUnits="userSpaceOnUse" cy="35.82" cx="36.384" gradientTransform="matrix(1.0031 .0033139 -.0032974 .99999 113.07 114.38)" r="150">
+      <stop id="stop3144" style="stop-color:#191919" offset="0"/>
+      <stop id="stop3146" style="stop-color:#303030" offset=".56447"/>
+      <stop id="stop3148" style="stop-color:#505050" offset=".60505"/>
+      <stop id="stop3150" style="stop-color:#747474" offset=".64716"/>
+      <stop id="stop3152" style="stop-color:#969696" offset=".68079"/>
+      <stop id="stop3154" style="stop-color:#bababa" offset=".72809"/>
+      <stop id="stop3156" style="stop-color:#dadada" offset=".77688"/>
+      <stop id="stop3158" style="stop-color:#f9f9f9" offset=".77688"/>
+      <stop id="stop3160" style="stop-color:#dfdfdf" offset=".77688"/>
+      <stop id="stop3162" style="stop-color:#bcbcbc" offset=".82817"/>
+      <stop id="stop3164" style="stop-color:#9a9a9a" offset=".86172"/>
+      <stop id="stop3166" style="stop-color:#787878" offset=".88962"/>
+      <stop id="stop3168" style="stop-color:#555656" offset=".92034"/>
+      <stop id="stop3170" style="stop-color:#333333" offset=".96508"/>
+      <stop id="stop3172" style="stop-color:#1a1919" offset="1"/>
+    </radialGradient>
+  </defs>
+  <g id="g4938">
+    <path id="path4604" style="fill-rule:evenodd;fill:url(#radialGradient4936)" d="m150 0c-82.843 0-150 67.157-150 150 0 82.84 67.157 150 150 150 82.84 0 150-67.16 150-150 0-82.843-67.16-150-150-150zm-2.0625 70c0.68617-0.0174 1.3721 0 2.0625 0 44.18 0 80 35.82 80 80s-35.82 80-80 80c-44.183 0-80-35.817-80-80 0-43.492 34.709-78.905 77.938-80z"/>
+    <path id="path3194" style="opacity:.35;fill-rule:evenodd;fill:#000000" d="m150 0.000002c-82.843 0-150 67.157-150 150-0.0000025 82.84 67.157 150 150 150 82.84 0 150-67.16 150-150 0-82.843-67.16-150-150-150zm-2.0625 70c0.68617-0.0174 1.3721 0 2.0625 0 44.18 0 80 35.82 80 80s-35.82 80-80 80c-44.183 0-80-35.817-80-80 0-43.492 34.709-78.905 77.938-80z"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
